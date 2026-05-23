@@ -46,13 +46,14 @@ if disease == "chest pain":
             winsound.Beep(1000, 500)
             st.error("🚨 High Risk Alert Tone Played!")
         else:
-            # Low pitch calm beep for safe risk (Frequency: 500Hz, Duration: 300ms)
-            # A cheerful, ascending 3-note melody (Arpeggio)
-            winsound.Beep(523, 150)  # C5 Note (Happy starting tone)
-            winsound.Beep(659, 150)  # E5 Note (Bright major third)
-            winsound.Beep(784, 250)  # G5 Note (Satisfying high finish)
+            # ✅ Add this safety wrapper line right here!
+            if winsound:
+                winsound.Beep(523, 150)  # C5 Note (Happy starting tone)
+                winsound.Beep(659, 150)  # E5 Note (Bright major third)
+                winsound.Beep(784, 250)  # G5 Note (Satisfying high finish)
 
             st.success("🎵 Low Risk Tone Played!")
+
 
     elif which_type == "Atypical Angina":
         # 1. Filter your data
@@ -86,11 +87,11 @@ if disease == "chest pain":
             winsound.Beep(1000, 500)
             st.error("🚨 High Risk Alert Tone Played!")
         else:
-            # Low pitch calm beep for safe risk (Frequency: 500Hz, Duration: 300ms)
-            # A cheerful, ascending 3-note melody (Arpeggio)
-            winsound.Beep(523, 150)  # C5 Note (Happy starting tone)
-            winsound.Beep(659, 150)  # E5 Note (Bright major third)
-            winsound.Beep(784, 250)  # G5 Note (Satisfying high finish)
+            # ✅ Add this safety wrapper line right here!
+            if winsound:
+                winsound.Beep(523, 150)  # C5 Note (Happy starting tone)
+                winsound.Beep(659, 150)  # E5 Note (Bright major third)
+                winsound.Beep(784, 250)  # G5 Note (Satisfying high finish)
 
             st.success("🎵 Low Risk Tone Played!")
 
@@ -113,11 +114,11 @@ if disease == "chest pain":
             winsound.Beep(1000, 500)
             st.error("🚨 High Risk Alert Tone Played!")
         else:
-            # Low pitch calm beep for safe risk (Frequency: 500Hz, Duration: 300ms)
-            # A cheerful, ascending 3-note melody (Arpeggio)
-            winsound.Beep(523, 150)  # C5 Note (Happy starting tone)
-            winsound.Beep(659, 150)  # E5 Note (Bright major third)
-            winsound.Beep(784, 250)  # G5 Note (Satisfying high finish)
+            # ✅ Add this safety wrapper line right here!
+            if winsound:
+                winsound.Beep(523, 150)  # C5 Note (Happy starting tone)
+                winsound.Beep(659, 150)  # E5 Note (Bright major third)
+                winsound.Beep(784, 250)  # G5 Note (Satisfying high finish)
 
             st.success("🎵 Low Risk Tone Played!")
 
@@ -147,11 +148,11 @@ if disease == "chest pain":
             winsound.Beep(1000, 500)
             st.error("🚨 High Risk Alert Tone Played!")
         else:
-            # Low pitch calm beep for safe risk (Frequency: 500Hz, Duration: 300ms)
-            # A cheerful, ascending 3-note melody (Arpeggio)
-            winsound.Beep(523, 150)  # C5 Note (Happy starting tone)
-            winsound.Beep(659, 150)  # E5 Note (Bright major third)
-            winsound.Beep(784, 250)  # G5 Note (Satisfying high finish)
+            # ✅ Add this safety wrapper line right here!
+            if winsound:
+                winsound.Beep(523, 150)  # C5 Note (Happy starting tone)
+                winsound.Beep(659, 150)  # E5 Note (Bright major third)
+                winsound.Beep(784, 250)  # G5 Note (Satisfying high finish)
 
             st.success("🎵 Low Risk Tone Played!")
 elif disease == 'fbs':
@@ -187,11 +188,11 @@ elif disease == 'fbs':
             winsound.Beep(1000, 500)
             st.error("🚨 High Risk Alert Tone Played!")
         else:
-            # Low pitch calm beep for safe risk (Frequency: 500Hz, Duration: 300ms)
-            # A cheerful, ascending 3-note melody (Arpeggio)
-            winsound.Beep(523, 150)  # C5 Note (Happy starting tone)
-            winsound.Beep(659, 150)  # E5 Note (Bright major third)
-            winsound.Beep(784, 250)  # G5 Note (Satisfying high finish)
+            # ✅ Add this safety wrapper line right here!
+            if winsound:
+                winsound.Beep(523, 150)  # C5 Note (Happy starting tone)
+                winsound.Beep(659, 150)  # E5 Note (Bright major third)
+                winsound.Beep(784, 250)  # G5 Note (Satisfying high finish)
 
             st.success("🎵 Low Risk Tone Played!")
     elif what_type == 'Low Blood pressure':
@@ -220,11 +221,11 @@ elif disease == 'fbs':
             winsound.Beep(1000, 500)
             st.error("🚨 High Risk Alert Tone Played!")
         else:
-            # Low pitch calm beep for safe risk (Frequency: 500Hz, Duration: 300ms)
-            # A cheerful, ascending 3-note melody (Arpeggio)
-            winsound.Beep(523, 150)  # C5 Note (Happy starting tone)
-            winsound.Beep(659, 150)  # E5 Note (Bright major third)
-            winsound.Beep(784, 250)  # G5 Note (Satisfying high finish)
+            # ✅ Add this safety wrapper line right here!
+            if winsound:
+                winsound.Beep(523, 150)  # C5 Note (Happy starting tone)
+                winsound.Beep(659, 150)  # E5 Note (Bright major third)
+                winsound.Beep(784, 250)  # G5 Note (Satisfying high finish)
 
             st.success("🎵 Low Risk Tone Played!")
 elif disease == 'restecg':
@@ -259,11 +260,11 @@ elif disease == 'restecg':
             winsound.Beep(1000, 500)
             st.error("🚨 High Risk Alert Tone Played!")
         else:
-            # Low pitch calm beep for safe risk (Frequency: 500Hz, Duration: 300ms)
-            # A cheerful, ascending 3-note melody (Arpeggio)
-            winsound.Beep(523, 150)  # C5 Note (Happy starting tone)
-            winsound.Beep(659, 150)  # E5 Note (Bright major third)
-            winsound.Beep(784, 250)  # G5 Note (Satisfying high finish)
+            # ✅ Add this safety wrapper line right here!
+            if winsound:
+                winsound.Beep(523, 150)  # C5 Note (Happy starting tone)
+                winsound.Beep(659, 150)  # E5 Note (Bright major third)
+                winsound.Beep(784, 250)  # G5 Note (Satisfying high finish)
 
             st.success("🎵 Low Risk Tone Played!")
     elif what_type == 'ST-T wave abnormality':
@@ -294,11 +295,11 @@ elif disease == 'restecg':
                 winsound.Beep(1000, 500)
                 st.error("🚨 High Risk Alert Tone Played!")
             else:
-                # Low pitch calm beep for safe risk (Frequency: 500Hz, Duration: 300ms)
-                # A cheerful, ascending 3-note melody (Arpeggio)
-                winsound.Beep(523, 150)  # C5 Note (Happy starting tone)
-                winsound.Beep(659, 150)  # E5 Note (Bright major third)
-                winsound.Beep(784, 250)  # G5 Note (Satisfying high finish)
+                # ✅ Add this safety wrapper line right here!
+                if winsound:
+                    winsound.Beep(523, 150)  # C5 Note (Happy starting tone)
+                    winsound.Beep(659, 150)  # E5 Note (Bright major third)
+                    winsound.Beep(784, 250)  # G5 Note (Satisfying high finish)
 
                 st.success("🎵 Low Risk Tone Played!")
     elif what_type == 'Left Ventricular Hypertrophy':
@@ -337,11 +338,11 @@ elif disease == 'restecg':
             winsound.Beep(1000, 500)
             st.error("🚨 High Risk Alert Tone Played!")
         else:
-            # Low pitch calm beep for safe risk (Frequency: 500Hz, Duration: 300ms)
-            # A cheerful, ascending 3-note melody (Arpeggio)
-            winsound.Beep(523, 150)  # C5 Note (Happy starting tone)
-            winsound.Beep(659, 150)  # E5 Note (Bright major third)
-            winsound.Beep(784, 250)  # G5 Note (Satisfying high finish)
+            # ✅ Add this safety wrapper line right here!
+            if winsound:
+                winsound.Beep(523, 150)  # C5 Note (Happy starting tone)
+                winsound.Beep(659, 150)  # E5 Note (Bright major third)
+                winsound.Beep(784, 250)  # G5 Note (Satisfying high finish)
 
             st.success("🎵 Low Risk Tone Played!")
 elif disease == 'ca':
@@ -379,49 +380,11 @@ elif disease == 'ca':
              winsound.Beep(1000, 500)
              st.error("🚨 High Risk Alert Tone Played!")
          else:
-             # Low pitch calm beep for safe risk (Frequency: 500Hz, Duration: 300ms)
-             # A cheerful, ascending 3-note melody (Arpeggio)
-             winsound.Beep(523, 150)  # C5 Note (Happy starting tone)
-             winsound.Beep(659, 150)  # E5 Note (Bright major third)
-             winsound.Beep(784, 250)  # G5 Note (Satisfying high finish)
-
-             st.success("🎵 Low Risk Tone Played!")
-     if what_type == '0 Vessels Clear 💀':
-         x = df[['age', 'ca']]  # (Change 'slope' to match whichever branch you are in)
-         y = df['target']
-
-         # ✅ 2. Now line 348 will execute flawlessly!
-         x = x.apply(pd.to_numeric, errors='coerce')
-         y = pd.to_numeric(y, errors='coerce')
-
-         available_samples = len(x)
-         chosen_neighbors = min(5, available_samples)
-
-         knn = KNeighborsClassifier(n_neighbors=chosen_neighbors)
-
-         knn.fit(x, y)
-
-         prediction = knn.predict(x)
-
-         cm = confusion_matrix(y, prediction)
-
-         tn, fp, fn, tp = cm.ravel()
-
-         slider_prob = knn.predict_proba([[agei, 0]])
-
-         risk_percentage = slider_prob[0][1] * 100
-
-         st.info(f"💡 Risk percentage for a patient aged {agei}: {risk_percentage:.1f}%")
-         if risk_percentage >= 50.0:
-             # High pitch beep for high risk (Frequency: 1000Hz, Duration: 500ms)
-             winsound.Beep(1000, 500)
-             st.error("🚨 High Risk Alert Tone Played!")
-         else:
-             # Low pitch calm beep for safe risk (Frequency: 500Hz, Duration: 300ms)
-             # A cheerful, ascending 3-note melody (Arpeggio)
-             winsound.Beep(523, 150)  # C5 Note (Happy starting tone)
-             winsound.Beep(659, 150)  # E5 Note (Bright major third)
-             winsound.Beep(784, 250)  # G5 Note (Satisfying high finish)
+             # ✅ Add this safety wrapper line right here!
+             if winsound:
+                 winsound.Beep(523, 150)  # C5 Note (Happy starting tone)
+                 winsound.Beep(659, 150)  # E5 Note (Bright major third)
+                 winsound.Beep(784, 250)  # G5 Note (Satisfying high finish)
 
              st.success("🎵 Low Risk Tone Played!")
      if what_type == '1 vessel clear ⚠':
@@ -455,11 +418,11 @@ elif disease == 'ca':
              winsound.Beep(1000, 500)
              st.error("🚨 High Risk Alert Tone Played!")
          else:
-             # Low pitch calm beep for safe risk (Frequency: 500Hz, Duration: 300ms)
-             # A cheerful, ascending 3-note melody (Arpeggio)
-             winsound.Beep(523, 150)  # C5 Note (Happy starting tone)
-             winsound.Beep(659, 150)  # E5 Note (Bright major third)
-             winsound.Beep(784, 250)  # G5 Note (Satisfying high finish)
+             # ✅ Add this safety wrapper line right here!
+             if winsound:
+                 winsound.Beep(523, 150)  # C5 Note (Happy starting tone)
+                 winsound.Beep(659, 150)  # E5 Note (Bright major third)
+                 winsound.Beep(784, 250)  # G5 Note (Satisfying high finish)
 
              st.success("🎵 Low Risk Tone Played!")
      if what_type == '2 vessels clear 👍':
@@ -493,11 +456,11 @@ elif disease == 'ca':
              winsound.Beep(1000, 500)
              st.error("🚨 High Risk Alert Tone Played!")
          else:
-             # Low pitch calm beep for safe risk (Frequency: 500Hz, Duration: 300ms)
-             # A cheerful, ascending 3-note melody (Arpeggio)
-             winsound.Beep(523, 150)  # C5 Note (Happy starting tone)
-             winsound.Beep(659, 150)  # E5 Note (Bright major third)
-             winsound.Beep(784, 250)  # G5 Note (Satisfying high finish)
+             # ✅ Add this safety wrapper line right here!
+             if winsound:
+                 winsound.Beep(523, 150)  # C5 Note (Happy starting tone)
+                 winsound.Beep(659, 150)  # E5 Note (Bright major third)
+                 winsound.Beep(784, 250)  # G5 Note (Satisfying high finish)
 
              st.success("🎵 Low Risk Tone Played!")
      if what_type == '3 vessels clear 💝':
@@ -531,11 +494,11 @@ elif disease == 'ca':
              winsound.Beep(1000, 500)
              st.error("🚨 High Risk Alert Tone Played!")
          else:
-             # Low pitch calm beep for safe risk (Frequency: 500Hz, Duration: 300ms)
-             # A cheerful, ascending 3-note melody (Arpeggio)
-             winsound.Beep(523, 150)  # C5 Note (Happy starting tone)
-             winsound.Beep(659, 150)  # E5 Note (Bright major third)
-             winsound.Beep(784, 250)  # G5 Note (Satisfying high finish)
+             # ✅ Add this safety wrapper line right here!
+             if winsound:
+                 winsound.Beep(523, 150)  # C5 Note (Happy starting tone)
+                 winsound.Beep(659, 150)  # E5 Note (Bright major third)
+                 winsound.Beep(784, 250)  # G5 Note (Satisfying high finish)
 
              st.success("🎵 Low Risk Tone Played!")
 
@@ -574,11 +537,11 @@ elif disease == 'thal':
              winsound.Beep(1000, 500)
              st.error("🚨 High Risk Alert Tone Played!")
          else:
-             # Low pitch calm beep for safe risk (Frequency: 500Hz, Duration: 300ms)
-             # A cheerful, ascending 3-note melody (Arpeggio)
-             winsound.Beep(523, 150)  # C5 Note (Happy starting tone)
-             winsound.Beep(659, 150)  # E5 Note (Bright major third)
-             winsound.Beep(784, 250)  # G5 Note (Satisfying high finish)
+             # ✅ Add this safety wrapper line right here!
+             if winsound:
+                 winsound.Beep(523, 150)  # C5 Note (Happy starting tone)
+                 winsound.Beep(659, 150)  # E5 Note (Bright major third)
+                 winsound.Beep(784, 250)  # G5 Note (Satisfying high finish)
 
              st.success("🎵 Low Risk Tone Played!")
      if what_type == 'fixed defect':
@@ -612,11 +575,11 @@ elif disease == 'thal':
              winsound.Beep(1000, 500)
              st.error("🚨 High Risk Alert Tone Played!")
          else:
-             # Low pitch calm beep for safe risk (Frequency: 500Hz, Duration: 300ms)
-             # A cheerful, ascending 3-note melody (Arpeggio)
-             winsound.Beep(523, 150)  # C5 Note (Happy starting tone)
-             winsound.Beep(659, 150)  # E5 Note (Bright major third)
-             winsound.Beep(784, 250)  # G5 Note (Satisfying high finish)
+             # ✅ Add this safety wrapper line right here!
+             if winsound:
+                 winsound.Beep(523, 150)  # C5 Note (Happy starting tone)
+                 winsound.Beep(659, 150)  # E5 Note (Bright major third)
+                 winsound.Beep(784, 250)  # G5 Note (Satisfying high finish)
 
              st.success("🎵 Low Risk Tone Played!")
      if what_type == 'reversible defect':
@@ -650,10 +613,10 @@ elif disease == 'thal':
              winsound.Beep(1000, 500)
              st.error("🚨 High Risk Alert Tone Played!")
          else:
-             # Low pitch calm beep for safe risk (Frequency: 500Hz, Duration: 300ms)
-             # A cheerful, ascending 3-note melody (Arpeggio)
-             winsound.Beep(523, 150)  # C5 Note (Happy starting tone)
-             winsound.Beep(659, 150)  # E5 Note (Bright major third)
-             winsound.Beep(784, 250)  # G5 Note (Satisfying high finish)
+             # ✅ Add this safety wrapper line right here!
+             if winsound:
+                 winsound.Beep(523, 150)  # C5 Note (Happy starting tone)
+                 winsound.Beep(659, 150)  # E5 Note (Bright major third)
+                 winsound.Beep(784, 250)  # G5 Note (Satisfying high finish)
 
              st.success("🎵 Low Risk Tone Played!")
