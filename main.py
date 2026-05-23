@@ -1,8 +1,15 @@
 import streamlit as st
-import winsound
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import classification_report, confusion_matrix
 import pandas as pd
+import platform  # ✅ New built-in tool to check the operating system
+
+# ✅ Smart Import: Only load winsound if running on Windows!
+if platform.system() == "Windows":
+    import winsound
+else:
+    winsound = None
+
 
 st.title("YF CHECK HEART DETAILS 💝")
 disease = st.selectbox("select option", ['chest pain', 'fbs', 'restecg', 'slope', 'ca', 'thal'])
