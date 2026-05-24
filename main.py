@@ -1,14 +1,37 @@
 import streamlit as st
 from sklearn.neighbors import KNeighborsClassifier
-from sklearn.metrics import classification_report, confusion_matrix
+from sklearn.metrics import confusion_matrix
 import pandas as pd
-import platform  # ✅ New built-in tool to check the operating system
+import platform
 
-# ✅ Smart Import: Only load winsound if running on Windows!
-if platform.system() == "Windows":
+# 1. ✅ Clean System Environment Verification
+IS_WINDOWS = platform.system() == "Windows"
+
+if IS_WINDOWS:
     import winsound
-else:
-    winsound = None
+
+# 2. ✅ Web Audio API Browser Generator (For Linux Cloud)
+def trigger_browser_sound(frequency, duration):
+    audio_html = f"""
+    <script>
+        var context = new (window.AudioContext || window.webkitAudioContext)();
+        var osc = context.createOscillator();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime({frequency}, context.currentTime);
+        osc.connect(context.destination);
+        osc.start();
+        setTimeout(function() {{ osc.stop(); }}, {duration});
+    </script>
+    """
+    st.components.v1.html(audio_html, height=0, width=0)
+
+# 3. ✅ Fully Repaired Audio Bridge Function
+def play_alert(frequency, duration):
+    if IS_WINDOWS:
+        winsound.Beep(frequency, duration)  # Fixed execution block
+    else:
+        trigger_browser_sound(frequency, duration)
+
 
 
 st.title("YF CHECK HEART DETAILS 💝")
@@ -43,17 +66,17 @@ if disease == "chest pain":
         # Sound notification logic based on risk score
         if risk_percentage >= 50.0:
             # ✅ Safe wrapper added for high-risk beep
-            if winsound:
-                winsound.Beep(1200, 150)
-                winsound.Beep(300, 150)
-                winsound.Beep(1200, 150)
-                winsound.Beep(300, 300)
+            
+            play_alert(1200, 150)
+            play_alert(300, 150)
+            play_alert(1200, 150)
+            play_alert(300, 300)
             st.error("🚨 High Risk Alert Tone Played!")
         else:
-            if winsound:
-                winsound.Beep(523, 150)
-                winsound.Beep(659, 150)
-                winsound.Beep(784, 250)
+            
+            play_alert(523, 150)
+            play_alert(659, 150)
+            play_alert(784, 250)
             st.success("🎵 Low Risk Tone Played!")
 
     elif which_type == "Atypical Angina":
@@ -85,17 +108,17 @@ if disease == "chest pain":
         st.info(f"💡 Risk percentage for a patient aged {agei}: {risk_percentage:.1f}%")
         if risk_percentage >= 50.0:
             # ✅ Safe wrapper added for high-risk beep
-            if winsound:
-                winsound.Beep(1200, 150)
-                winsound.Beep(300, 150)
-                winsound.Beep(1200, 150)
-                winsound.Beep(300, 300)
+            
+            play_alert(1200, 150)
+            play_alert(300, 150)
+            play_alert(1200, 150)
+            play_alert(300, 300)
             st.error("🚨 High Risk Alert Tone Played!")
         else:
-            if winsound:
-                winsound.Beep(523, 150)
-                winsound.Beep(659, 150)
-                winsound.Beep(784, 250)
+            
+            play_alert(523, 150)
+            play_alert(659, 150)
+            play_alert(784, 250)
             st.success("🎵 Low Risk Tone Played!")
 
     elif which_type == "Non-anginal Pain":
@@ -114,17 +137,17 @@ if disease == "chest pain":
         st.info(f"💡 Risk percentage for a patient aged {agei}: {risk_percentage:.1f}%")
         if risk_percentage >= 50.0:
             # ✅ Safe wrapper added for high-risk beep
-            if winsound:
-                winsound.Beep(1200, 150)
-                winsound.Beep(300, 150)
-                winsound.Beep(1200, 150)
-                winsound.Beep(300, 300)
+            
+            play_alert(1200, 150)
+            play_alert(300, 150)
+            play_alert(1200, 150)
+            play_alert(300, 300)
             st.error("🚨 High Risk Alert Tone Played!")
         else:
-            if winsound:
-                winsound.Beep(523, 150)
-                winsound.Beep(659, 150)
-                winsound.Beep(784, 250)
+            
+            play_alert(523, 150)
+            play_alert(659, 150)
+            play_alert(784, 250)
             st.success("🎵 Low Risk Tone Played!")
     elif which_type == "Asymptomatic":
         x = df[['age']]
@@ -149,17 +172,17 @@ if disease == "chest pain":
         st.info(f"💡 Risk percentage for a patient aged {agei}: {risk_percentage:.1f}%")
         if risk_percentage >= 50.0:
             # ✅ Safe wrapper added for high-risk beep
-            if winsound:
-                winsound.Beep(1200, 150)
-                winsound.Beep(300, 150)
-                winsound.Beep(1200, 150)
-                winsound.Beep(300, 300)
+            
+            play_alert(1200, 150)
+            play_alert(300, 150)
+            play_alert(1200, 150)
+            play_alert(300, 300)
             st.error("🚨 High Risk Alert Tone Played!")
         else:
-            if winsound:
-                winsound.Beep(523, 150)
-                winsound.Beep(659, 150)
-                winsound.Beep(784, 250)
+            
+            play_alert(523, 150)
+            play_alert(659, 150)
+            play_alert(784, 250)
             st.success("🎵 Low Risk Tone Played!")
 elif disease == 'fbs':
     df = pd.read_csv('heart.csv')
@@ -191,17 +214,17 @@ elif disease == 'fbs':
         st.info(f"💡 Risk percentage for a patient aged {agei}: {risk_percentage:.1f}%")
         if risk_percentage >= 50.0:
             # ✅ Safe wrapper added for high-risk beep
-            if winsound:
-                winsound.Beep(1200, 150)
-                winsound.Beep(300, 150)
-                winsound.Beep(1200, 150)
-                winsound.Beep(300, 300)
+            
+            play_alert(1200, 150)
+            play_alert(300, 150)
+            play_alert(1200, 150)
+            play_alert(300, 300)
             st.error("🚨 High Risk Alert Tone Played!")
         else:
-            if winsound:
-                winsound.Beep(523, 150)
-                winsound.Beep(659, 150)
-                winsound.Beep(784, 250)
+            
+            play_alert(523, 150)
+            play_alert(659, 150)
+            play_alert(784, 250)
             st.success("🎵 Low Risk Tone Played!")
     elif what_type == 'Low Blood pressure':
         x = df[['age', 'fbs']]
@@ -226,17 +249,17 @@ elif disease == 'fbs':
         st.info(f"💡 Risk percentage for a patient aged {agei}: {risk_percentage:.1f}%")
         if risk_percentage >= 50.0:
             # ✅ Safe wrapper added for high-risk beep
-            if winsound:
-                winsound.Beep(1200, 150)
-                winsound.Beep(300, 150)
-                winsound.Beep(1200, 150)
-                winsound.Beep(300, 300)
+            
+            play_alert(1200, 150)
+            play_alert(300, 150)
+            play_alert(1200, 150)
+            play_alert(300, 300)
             st.error("🚨 High Risk Alert Tone Played!")
         else:
-            if winsound:
-                winsound.Beep(523, 150)
-                winsound.Beep(659, 150)
-                winsound.Beep(784, 250)
+            
+            play_alert(523, 150)
+            play_alert(659, 150)
+            play_alert(784, 250)
             st.success("🎵 Low Risk Tone Played!")
 elif disease == 'restecg':
     df = pd.read_csv('heart.csv')
@@ -267,17 +290,17 @@ elif disease == 'restecg':
         st.info(f"💡 Risk percentage for a patient aged {agei}: {risk_percentage:.1f}%")
         if risk_percentage >= 50.0:
             # ✅ Safe wrapper added for high-risk beep
-            if winsound:
-                winsound.Beep(1200, 150)
-                winsound.Beep(300, 150)
-                winsound.Beep(1200, 150)
-                winsound.Beep(300, 300)
+            
+            play_alert(1200, 150)
+            play_alert(300, 150)
+            play_alert(1200, 150)
+            play_alert(300, 300)
             st.error("🚨 High Risk Alert Tone Played!")
         else:
-            if winsound:
-                winsound.Beep(523, 150)
-                winsound.Beep(659, 150)
-                winsound.Beep(784, 250)
+            
+            play_alert(523, 150)
+            play_alert(659, 150)
+            play_alert(784, 250)
             st.success("🎵 Low Risk Tone Played!")
     elif what_type == 'ST-T wave abnormality':
             x = df[['age', 'restecg']]
@@ -304,17 +327,17 @@ elif disease == 'restecg':
             st.info(f"💡 Risk percentage for a patient aged {agei}: {risk_percentage:.1f}%")
             if risk_percentage >= 50.0:
                 # ✅ Safe wrapper added for high-risk beep
-                if winsound:
-                    winsound.Beep(1200, 150)
-                    winsound.Beep(300, 150)
-                    winsound.Beep(1200, 150)
-                    winsound.Beep(300, 300)
+                
+                play_alert(1200, 150)
+                play_alert(300, 150)
+                play_alert(1200, 150)
+                play_alert(300, 300)
                 st.error("🚨 High Risk Alert Tone Played!")
             else:
-                if winsound:
-                    winsound.Beep(523, 150)
-                    winsound.Beep(659, 150)
-                    winsound.Beep(784, 250)
+                
+                play_alert(523, 150)
+                play_alert(659, 150)
+                play_alert(784, 250)
                 st.success("🎵 Low Risk Tone Played!")
     elif what_type == 'Left Ventricular Hypertrophy':
         # ✅ 1. Make sure x is extracted from your df (Double brackets keep it a DataFrame)
@@ -349,17 +372,17 @@ elif disease == 'restecg':
         st.info(f"💡 Risk percentage for a patient aged {agei}: {risk_percentage:.1f}%")
         if risk_percentage >= 50.0:
             # ✅ Safe wrapper added for high-risk beep
-            if winsound:
-                winsound.Beep(1200, 150)
-                winsound.Beep(300, 150)
-                winsound.Beep(1200, 150)
-                winsound.Beep(300, 300)
+            
+            play_alert(1200, 150)
+            play_alert(300, 150)
+            play_alert(1200, 150)
+            play_alert(300, 300)
             st.error("🚨 High Risk Alert Tone Played!")
         else:
-            if winsound:
-                winsound.Beep(523, 150)
-                winsound.Beep(659, 150)
-                winsound.Beep(784, 250)
+            
+            play_alert(523, 150)
+            play_alert(659, 150)
+            play_alert(784, 250)
             st.success("🎵 Low Risk Tone Played!")
 elif disease == 'ca':
      df = pd.read_csv('heart.csv')
@@ -393,17 +416,17 @@ elif disease == 'ca':
          st.info(f"💡 Risk percentage for a patient aged {agei}: {risk_percentage:.1f}%")
          if risk_percentage >= 50.0:
              # ✅ Safe wrapper added for high-risk beep
-             if winsound:
-                 winsound.Beep(1200, 150)
-                 winsound.Beep(300, 150)
-                 winsound.Beep(1200, 150)
-                 winsound.Beep(300, 300)
+             
+             play_alert(1200, 150)
+             play_alert(300, 150)
+             play_alert(1200, 150)
+             play_alert(300, 300)
              st.error("🚨 High Risk Alert Tone Played!")
          else:
-             if winsound:
-                 winsound.Beep(523, 150)
-                 winsound.Beep(659, 150)
-                 winsound.Beep(784, 250)
+             
+             play_alert(523, 150)
+             play_alert(659, 150)
+             play_alert(784, 250)
              st.success("🎵 Low Risk Tone Played!")
      if what_type == '1 vessel clear ⚠':
          x = df[['age', 'ca']]  # (Change 'slope' to match whichever branch you are in)
@@ -433,17 +456,17 @@ elif disease == 'ca':
          st.info(f"💡 Risk percentage for a patient aged {agei}: {risk_percentage:.1f}%")
          if risk_percentage >= 50.0:
              # ✅ Safe wrapper added for high-risk beep
-             if winsound:
-                 winsound.Beep(1200, 150)
-                 winsound.Beep(300, 150)
-                 winsound.Beep(1200, 150)
-                 winsound.Beep(300, 300)
+             
+             play_alert(1200, 150)
+             play_alert(300, 150)
+             play_alert(1200, 150)
+             play_alert(300, 300)
              st.error("🚨 High Risk Alert Tone Played!")
          else:
-             if winsound:
-                 winsound.Beep(523, 150)
-                 winsound.Beep(659, 150)
-                 winsound.Beep(784, 250)
+             
+             play_alert(523, 150)
+             play_alert(659, 150)
+             play_alert(784, 250)
              st.success("🎵 Low Risk Tone Played!")
      if what_type == '2 vessels clear 👍':
          x = df[['age', 'ca']]  # (Change 'slope' to match whichever branch you are in)
@@ -473,17 +496,17 @@ elif disease == 'ca':
          st.info(f"💡 Risk percentage for a patient aged {agei}: {risk_percentage:.1f}%")
          if risk_percentage >= 50.0:
              # ✅ Safe wrapper added for high-risk beep
-             if winsound:
-                 winsound.Beep(1200, 150)
-                 winsound.Beep(300, 150)
-                 winsound.Beep(1200, 150)
-                 winsound.Beep(300, 300)
+             
+             play_alert(1200, 150)
+             play_alert(300, 150)
+             play_alert(1200, 150)
+             play_alert(300, 300)
              st.error("🚨 High Risk Alert Tone Played!")
          else:
-             if winsound:
-                 winsound.Beep(523, 150)
-                 winsound.Beep(659, 150)
-                 winsound.Beep(784, 250)
+             
+             play_alert(523, 150)
+             play_alert(659, 150)
+             play_alert(784, 250)
              st.success("🎵 Low Risk Tone Played!")
      if what_type == '3 vessels clear 💝':
          x = df[['age', 'ca']]  # (Change 'slope' to match whichever branch you are in)
@@ -513,17 +536,17 @@ elif disease == 'ca':
          st.info(f"💡 Risk percentage for a patient aged {agei}: {risk_percentage:.1f}%")
          if risk_percentage >= 50.0:
              # ✅ Safe wrapper added for high-risk beep
-             if winsound:
-                 winsound.Beep(1200, 150)
-                 winsound.Beep(300, 150)
-                 winsound.Beep(1200, 150)
-                 winsound.Beep(300, 300)
+             
+             play_alert(1200, 150)
+             play_alert(300, 150)
+             play_alert(1200, 150)
+             play_alert(300, 300)
              st.error("🚨 High Risk Alert Tone Played!")
          else:
-             if winsound:
-                 winsound.Beep(523, 150)
-                 winsound.Beep(659, 150)
-                 winsound.Beep(784, 250)
+             
+             play_alert(523, 150)
+             play_alert(659, 150)
+             play_alert(784, 250)
              st.success("🎵 Low Risk Tone Played!")
 
 elif disease == 'thal':
@@ -558,17 +581,17 @@ elif disease == 'thal':
          st.info(f"💡 Risk percentage for a patient aged {agei}: {risk_percentage:.1f}%")
          if risk_percentage >= 50.0:
              # ✅ Safe wrapper added for high-risk beep
-             if winsound:
-                 winsound.Beep(1200, 150)
-                 winsound.Beep(300, 150)
-                 winsound.Beep(1200, 150)
-                 winsound.Beep(300, 300)
+             
+             play_alert(1200, 150)
+             play_alert(300, 150)
+             play_alert(1200, 150)
+             play_alert(300, 300)
              st.error("🚨 High Risk Alert Tone Played!")
          else:
-             if winsound:
-                 winsound.Beep(523, 150)
-                 winsound.Beep(659, 150)
-                 winsound.Beep(784, 250)
+             
+             play_alert(523, 150)
+             play_alert(659, 150)
+             play_alert(784, 250)
              st.success("🎵 Low Risk Tone Played!")
      if what_type == 'fixed defect':
          x = df[['age', 'thal']]  # (Change 'slope' to match whichever branch you are in)
@@ -598,17 +621,17 @@ elif disease == 'thal':
          st.info(f"💡 Risk percentage for a patient aged {agei}: {risk_percentage:.1f}%")
          if risk_percentage >= 50.0:
              # ✅ Safe wrapper added for high-risk beep
-             if winsound:
-                 winsound.Beep(1200, 150)
-                 winsound.Beep(300, 150)
-                 winsound.Beep(1200, 150)
-                 winsound.Beep(300, 300)
+             
+             play_alert(1200, 150)
+             play_alert(300, 150)
+             play_alert(1200, 150)
+             play_alert(300, 300)
              st.error("🚨 High Risk Alert Tone Played!")
          else:
-             if winsound:
-                 winsound.Beep(523, 150)
-                 winsound.Beep(659, 150)
-                 winsound.Beep(784, 250)
+             
+             play_alert(523, 150)
+             play_alert(659, 150)
+             play_alert(784, 250)
              st.success("🎵 Low Risk Tone Played!")
      if what_type == 'reversible defect':
          x = df[['age', 'thal']]  # (Change 'slope' to match whichever branch you are in)
@@ -638,15 +661,15 @@ elif disease == 'thal':
          st.info(f"💡 Risk percentage for a patient aged {agei}: {risk_percentage:.1f}%")
          if risk_percentage >= 50.0:
              # ✅ Safe wrapper added for high-risk beep
-             if winsound:
-                 winsound.Beep(1200, 150)
-                 winsound.Beep(300, 150)
-                 winsound.Beep(1200, 150)
-                 winsound.Beep(300, 300)
+             
+             play_alert(1200, 150)
+             play_alert(300, 150)
+             play_alert(1200, 150)
+             play_alert(300, 300)
              st.error("🚨 High Risk Alert Tone Played!")
          else:
-             if winsound:
-                 winsound.Beep(523, 150)
-                 winsound.Beep(659, 150)
-                 winsound.Beep(784, 250)
+             
+             play_alert(523, 150)
+             play_alert(659, 150)
+             play_alert(784, 250)
              st.success("🎵 Low Risk Tone Played!")
